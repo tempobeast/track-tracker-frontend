@@ -44,41 +44,57 @@ h1 {
   margin-right: 20%;
 }
 
-#workout_card {
+.workout_card {
   background-color: rgb(234, 234, 234);
   border-radius: 25px;
   margin: 0 80px 50px 80px;
-  padding: 10px 0 25px 0;
+  padding: 10px 0 75px 0;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
 }
 
-#workout_date {
+.workout_date {
   background-color: rgb(3, 26, 232);
   padding: 10px 0 10px 30px;
   text-align: left;
   color: rgb(234, 234, 234);
 }
 
-#workout_type {
+.workout_type {
   margin-top: -50px;
   color: rgb(234, 234, 234)
 }
 
-#workout_approx_duration {
+.workout_approx_duration {
   margin-top: -40px;
   text-align: right;
   padding-right: 30px;
   color: rgb(234, 234, 234)
 }
 
-#workout_details {
+.workout_details {
   margin: 50px 0 30px 0;
+}
+
+.athlete_count {
+  float: left;
+  width: 25%;
+}
+
+.workout_log_button {
+  float:left;
+  width: 30%;
+  margin: 15px 10% 50px 10%;
+}
+
+.workout_average_rating {
+  float: left;
+  width: 25%;
 }
 
 #comment_container {
   background-color: rgb(70, 69, 69);
   padding: 10px;
-  margin: 0 20px 0 20px;
+  margin: 75px 20px 0 20px;
   border-radius: 10px;
 }
 
