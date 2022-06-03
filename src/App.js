@@ -7,7 +7,7 @@ import AthleteContainer from './AthleteContainer';
 function App() {
 
   return (
-    <div>
+    <div className='App'>
       <Header/>
       <Nav/>
       <AthleteContainer/>

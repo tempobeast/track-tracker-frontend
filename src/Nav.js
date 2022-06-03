@@ -7,7 +7,6 @@ return (
     <div id="nav">
         <button className="nav_button">Add Athlete</button>
         <button className="nav_button">Add Workout</button>
-        
     </div>
     
   );

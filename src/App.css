@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #track_image {
@@ -12,4 +13,62 @@ h1 {
   position: relative;
   margin-left: auto;
   margin-right: auto;
+}
+
+#athlete_container {
+  margin-top: 100px;
+}
+
+#athlete_list {
+  text-align: left;
+  margin-left: 5%;
+  font-size:x-large;
+  font-weight: 500;
+  float: left;
+  width: 25%;
+  background-color: aqua;
+}
+
+.athlete_name:hover {
+  font-weight: 900;
+  color: blue;
+  cursor: pointer;
+  padding: 0;
+}
+
+#workout_list {
+  float: left;
+  width: 65%;
+  margin-right: 5%;
+}
+
+#workout_card {
+  background-color: rgb(234, 234, 234);
+  border-radius: 25px;
+  margin: 0 80px 50px 80px;
+  padding: 10px 0 25px 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+
+#workout_date {
+  background-color: rgb(3, 26, 232);
+  padding: 10px 0 10px 30px;
+  text-align: left;
+  color: rgb(234, 234, 234);
+}
+
+#workout_type {
+  margin-top: -50px;
+  color: rgb(234, 234, 234)
+}
+
+#workout_approx_duration {
+  margin-top: -40px;
+  text-align: right;
+  padding-right: 30px;
+  color: rgb(234, 234, 234)
+}
+
+#workout_details {
+  margin: 50px 0 30px 0;
 }
