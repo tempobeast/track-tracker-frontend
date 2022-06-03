@@ -21,12 +21,12 @@ h1 {
 
 #athlete_list {
   text-align: left;
-  margin-left: 5%;
+  margin-left: 3%;
   font-size:x-large;
   font-weight: 500;
   float: left;
-  width: 25%;
-  background-color: aqua;
+  width: 15%;
+  padding-left: 2%;
 }
 
 .athlete_name:hover {
@@ -38,8 +38,10 @@ h1 {
 
 #workout_list {
   float: left;
-  width: 65%;
-  margin-right: 5%;
+  position: absolute;
+  width: 60%;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
 #workout_card {
@@ -71,4 +73,18 @@ h1 {
 
 #workout_details {
   margin: 50px 0 30px 0;
+}
+
+#comment_container {
+  background-color: rgb(70, 69, 69);
+  padding: 10px;
+  margin: 0 20px 0 20px;
+  border-radius: 10px;
+}
+
+#comment {
+  background-color: rgb(171, 171, 171);
+  margin: 10px;
+  padding: 10px 0 10px 0;
+  border-radius: 15px;
 }

@@ -7,8 +7,6 @@ function AthleteContainer () {
 
     const [athletes, setAthletes] = useState([])
     const [selectedAthlete, setSelectedAthlete] = useState("")
-
-    console.log(selectedAthlete)
     
     useEffect(() => {
     fetch("http://localhost:9292/")
@@ -17,9 +15,9 @@ function AthleteContainer () {
 }, [])
 
     return (
-        <div id="player_container">
+        <div id="athlete_container">
             <AthleteList athletes={athletes} setSelectedAthlete={setSelectedAthlete}/>
-            <WorkoutList selectedAthlete={athletes[selectedAthlete - 1]}/>
+            <WorkoutList selectedAthlete={athletes[selectedAthlete - 1]} athletes={athletes}/>
         </div>
     )
 }
