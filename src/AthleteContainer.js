@@ -9,7 +9,10 @@ function AthleteContainer () {
     const [selectedAthlete, setSelectedAthlete] = useState("")
     const [workouts, setWorkouts] = useState([])
     const [workoutLogs, setWorkoutLogs] = useState([])
+    console.log(athletes)
+    console.log(workouts)
     console.log(workoutLogs)
+
 
     useEffect(() => {
         fetch("http://localhost:9292/athletes")
@@ -46,13 +49,25 @@ function AthleteContainer () {
             }),
         })
         .then((res) => res.json())
-        .then((newLog) => setWorkoutLogs(...workoutLogs, newLog))
+        .then((data) => setWorkoutLogs([...workoutLogs, data]))
+    }
+
+    function onLogDelete(id) {
+        fetch(`http://localhost:9292/log_entries/${id}`, {
+            method: "DELETE",
+        })
+        .then(res => res.json())
+        .then((deleteEntry) => {
+            const newWorkoutLogs = workoutLogs.filter((entry) => entry.id !== deleteEntry.id);
+            setWorkoutLogs(newWorkoutLogs)
+        })
+        
     }
 
     return (
         <div id="athlete_container">
             <AthleteList athletes={athletes} setSelectedAthlete={setSelectedAthlete}/>
-            <WorkoutList workouts={workouts} workoutLogs={workoutLogs} onLogSubmit={onLogSubmit} selectedAthlete={athletes[selectedAthlete - 1]} athletes={athletes}/>
+            <WorkoutList workouts={workouts} workoutLogs={workoutLogs} onLogSubmit={onLogSubmit} selectedAthlete={athletes[selectedAthlete - 1]} athletes={athletes} onLogDelete={onLogDelete}/>
         </div>
     )
 }
