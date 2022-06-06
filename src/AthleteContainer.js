@@ -9,7 +9,7 @@ import Nav from './Nav';
 function AthleteContainer () {
 
     const [athletes, setAthletes] = useState([])
-    const [selectedAthlete, setSelectedAthlete] = useState("")
+    const [selectedAthlete, setSelectedAthlete] = useState("All")
     const [workouts, setWorkouts] = useState([])
     const [workoutLogs, setWorkoutLogs] = useState([])
     const [addAthlete, setAddAthlete] = useState (false)
@@ -62,7 +62,6 @@ function AthleteContainer () {
             const newWorkoutLogs = workoutLogs.filter((entry) => entry.id !== deleteEntry.id);
             setWorkoutLogs(newWorkoutLogs)
         })
-        
     }
 
     function onNewAthleteSubmit(formData) {
@@ -108,6 +107,15 @@ function AthleteContainer () {
         setAddWorkout(!addWorkout)
     }
 
+    function onAthleteClick(selectedId) {
+        const selectedRunner = athletes.filter((athlete) => athlete.id.toString() === selectedId.toString())
+        setSelectedAthlete(selectedRunner[0])
+    }
+    
+    function onSelectAll(all) {
+        setSelectedAthlete(all)
+    }
+
     return (
         <div id="athlete_container">
             <Nav onAddAthleteClick={onAddAthleteClick} onAddWorkoutClick={onAddWorkoutClick}/>
@@ -115,8 +123,9 @@ function AthleteContainer () {
             {addWorkout ? <CreateNewWorkout setAddWorkout={setAddWorkout} 
             onNewWorkoutSubmit={onNewWorkoutSubmit}
             /> : null}
-            <AthleteList athletes={athletes} setSelectedAthlete={setSelectedAthlete}/>
-            <WorkoutList workouts={workouts} workoutLogs={workoutLogs} onLogSubmit={onLogSubmit} selectedAthlete={athletes[selectedAthlete - 1]} athletes={athletes} onLogDelete={onLogDelete}/>
+            {selectedAthlete === "All" ? <h2>All Workouts</h2> : <h2>{selectedAthlete.name}'s Workouts</h2>}
+            <AthleteList athletes={athletes} onAthleteClick={onAthleteClick} onSelectAll={onSelectAll}/>
+            <WorkoutList workouts={workouts} workoutLogs={workoutLogs} onLogSubmit={onLogSubmit} selectedAthlete={selectedAthlete} athletes={athletes} onLogDelete={onLogDelete}/>
         </div>
     )
 }
