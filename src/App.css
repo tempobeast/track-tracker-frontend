@@ -36,6 +36,12 @@ h1 {
   padding: 0;
 }
 
+.athlete_name_button {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+}
+
 #workout_list {
   float: left;
   position: absolute;
@@ -93,6 +99,7 @@ h1 {
 
 #comment_container {
   background-color: rgb(70, 69, 69);
+  color: white;
   padding: 10px;
   margin: 75px 20px 0 20px;
   border-radius: 10px;
@@ -100,6 +107,7 @@ h1 {
 
 #comment {
   background-color: rgb(171, 171, 171);
+  color: black;
   margin: 10px;
   padding: 10px 0 10px 0;
   border-radius: 15px;
