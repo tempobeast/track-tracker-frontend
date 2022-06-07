@@ -25,21 +25,55 @@ h1 {
   font-size:x-large;
   font-weight: 500;
   float: left;
-  width: 15%;
+  width: 18%;
   padding-left: 2%;
+}
+
+.athlete_name {
+  background-color: blue;
+  padding-left: 10px;
+  border-radius: 10px 0 10px 0;
+  color: white
+}
+
+.athlete_card {
+  background-color: lightgray;
+  border-radius: 10px 0 10px 0;
+}
+
+.athlete_id{
+  margin-top: -15px
+}
+
+.athlete_age {
+  margin: -15px 0 0 0;
 }
 
 .athlete_name:hover {
   font-weight: 900;
-  color: blue;
+  color: rgb(65, 165, 247);
   cursor: pointer;
-  padding: 0;
 }
 
-.athlete_name_button {
+.athlete_edit_button {
+  float: left;
   width: 30px;
   height: 30px;
   background-color: white;
+  margin: 10px 0 10px 0;
+}
+
+.athlete_delete_button {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  margin: 10px 0 10px 0;
+}
+
+.athlete_details {
+  padding: -30px 0 -30px 0;
+  margin-left: 10px;
+  font-size: large;
 }
 
 #workout_list {
@@ -112,3 +146,4 @@ h1 {
   padding: 10px 0 10px 0;
   border-radius: 15px;
 }
+

@@ -157,7 +157,7 @@ function AthleteContainer () {
             onNewWorkoutSubmit={onNewWorkoutSubmit}
             /> : null}
             {selectedAthlete === "All" ? <h2>All Workouts</h2> : <h2>{displayAthlete.name}'s Workouts</h2>}
-            <AthleteList athletes={athletes} onAthleteClick={onAthleteClick} onAthletePatchSubmit={onAthletePatchSubmit} onSelectAll={onSelectAll} onAthleteDelete={onAthleteDelete}/>
+            <AthleteList athletes={athletes} onAthleteClick={onAthleteClick} onAthletePatchSubmit={onAthletePatchSubmit} onSelectAll={onSelectAll} onAthleteDelete={onAthleteDelete} selectedAthlete={selectedAthlete}/>
             <WorkoutList workouts={workouts} workoutLogs={workoutLogs} onLogSubmit={onLogSubmit} selectedAthlete={selectedAthlete} athletes={athletes} onLogDelete={onLogDelete}/>
         </div>
     )
