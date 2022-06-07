@@ -123,8 +123,9 @@ function AthleteContainer () {
         })
         .then((res) => res.json())
         .then((deletedAthlete) => {
-            const newAthleteList = athletes.filter((athlete) => athlete.id !== deletedAthlete.id)
-            setAthletes(newAthleteList)
+            const newAthleteList = athletes.filter((athlete) => athlete.id !== deletedAthlete.id);
+            setAthletes(newAthleteList);
+            setSelectedAthlete("All")
         })
     }
 
