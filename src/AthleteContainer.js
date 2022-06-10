@@ -5,7 +5,6 @@ import AthleteList from "./AthleteList";
 import CreateNewAthleteForm from './CreateNewAthleteForm';
 import CreateNewWorkout from "./CreateNewWorkout";
 import Nav from './Nav';
-import { isCompositeComponent } from "react-dom/test-utils";
 
 function AthleteContainer () {
 
@@ -15,6 +14,8 @@ function AthleteContainer () {
     const [workoutLogs, setWorkoutLogs] = useState([])
     const [addAthlete, setAddAthlete] = useState (false)
     const [addWorkout, setAddWorkout] = useState (false)
+
+    console.log(athletes)
 
     useEffect(() => {
         fetch("http://localhost:9292/athletes")
@@ -51,17 +52,29 @@ function AthleteContainer () {
             }),
         })
         .then((res) => res.json())
-        .then((data) => setWorkoutLogs([...workoutLogs, data]))
+        .then((newLog) => {
+            const workoutArray = workouts.filter((workout) => workout.id !== newLog.workout_id )
+            const workoutToUpdate = workouts.find((workout) => workout.id === newLog.workout_id )
+            workoutToUpdate.log_entries = [...workoutToUpdate.log_entries, newLog]
+            setWorkouts([...workoutArray, workoutToUpdate])
+            const athleteArray = athletes.filter((athlete) => athlete.id !== newLog.athlete_id)
+            const athleteToUpdate = athletes.find((athlete) => athlete.id === newLog.athlete_id)
+            athleteToUpdate.log_entries = [...athleteToUpdate.log_entries, newLog]
+            setAthletes([...athleteArray, athleteToUpdate])
+        })
     }
 
-    function onLogDelete(id) {
-        fetch(`http://localhost:9292/log_entries/${id}`, {
+    function onLogDelete(entryId, workoutId) {
+        fetch(`http://localhost:9292/log_entries/${entryId}`, {
             method: "DELETE",
         })
         .then(res => res.json())
         .then((deleteEntry) => {
-            const newWorkoutLogs = workoutLogs.filter((entry) => entry.id !== deleteEntry.id);
-            setWorkoutLogs(newWorkoutLogs)
+            const workoutArray = workouts.filter((workout) => workout.id !== workoutId)
+            const workoutToUpdate = workouts.find((workout) => workout.id === workoutId)
+            const updatedLogs = workoutToUpdate.log_entries.filter((entry) => entry.id !== deleteEntry.id);
+            workoutToUpdate.log_entries = updatedLogs
+            setWorkouts([...workoutArray, workoutToUpdate])
         })
     }
 
@@ -117,6 +130,8 @@ function AthleteContainer () {
         })
     }
 
+// need to remove workoutLogs and adjust to athletes or workouts
+
     function onAthleteDelete (toDeleteId) {
         fetch(`http://localhost:9292/athletes/${toDeleteId}`, {
             method: "DELETE",
@@ -125,6 +140,8 @@ function AthleteContainer () {
         .then((deletedAthlete) => {
             const newAthleteList = athletes.filter((athlete) => athlete.id !== deletedAthlete.id);
             setAthletes(newAthleteList);
+            const newWorkoutLogs = workoutLogs.filter((log) => log.athlete_id !== deletedAthlete.id)
+            setWorkoutLogs(newWorkoutLogs)
             setSelectedAthlete("All")
         })
     }
@@ -157,8 +174,8 @@ function AthleteContainer () {
             onNewWorkoutSubmit={onNewWorkoutSubmit}
             /> : null}
             {selectedAthlete === "All" ? <h2>All Workouts</h2> : <h2>{displayAthlete.name}'s Workouts</h2>}
-            <AthleteList athletes={athletes} onAthleteClick={onAthleteClick} onAthletePatchSubmit={onAthletePatchSubmit} onSelectAll={onSelectAll} onAthleteDelete={onAthleteDelete} selectedAthlete={selectedAthlete}/>
-            <WorkoutList workouts={workouts} workoutLogs={workoutLogs} onLogSubmit={onLogSubmit} selectedAthlete={selectedAthlete} athletes={athletes} onLogDelete={onLogDelete}/>
+            <AthleteList athletes={athletes} onAthleteClick={onAthleteClick} onAthletePatchSubmit={onAthletePatchSubmit} onSelectAll={onSelectAll} onAthleteDelete={onAthleteDelete} selectedAthlete={selectedAthlete} setSelectedAthlete={setSelectedAthlete}/>
+            <WorkoutList workouts={workouts} onLogSubmit={onLogSubmit} selectedAthlete={selectedAthlete} athletes={athletes} onLogDelete={onLogDelete}/>
         </div>
     )
 }

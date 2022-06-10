@@ -36,6 +36,19 @@ h1 {
   color: white
 }
 
+.show_all {
+  background-color: gray;
+  padding-left: 10px;
+  border-radius: 10px 0 10px 0;
+  border-color: blue;
+  color: white
+}
+
+.show_all:hover{
+  font-weight: 900;
+  cursor: pointer;
+}
+
 .athlete_card {
   background-color: lightgray;
   border-radius: 10px 0 10px 0;
