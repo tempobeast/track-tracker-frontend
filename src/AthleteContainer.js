@@ -11,11 +11,9 @@ function AthleteContainer () {
     const [athletes, setAthletes] = useState([])
     const [selectedAthlete, setSelectedAthlete] = useState("All")
     const [workouts, setWorkouts] = useState([])
-    const [workoutLogs, setWorkoutLogs] = useState([])
     const [addAthlete, setAddAthlete] = useState (false)
     const [addWorkout, setAddWorkout] = useState (false)
-
-    console.log(athletes)
+    
 
     useEffect(() => {
         fetch("http://localhost:9292/athletes")
@@ -29,14 +27,9 @@ function AthleteContainer () {
         .then((data) => setWorkouts(data))
     }, [])
 
-    useEffect(() => {
-        fetch("http://localhost:9292/log_entries")
-        .then((res) => res.json())
-        .then((data) => setWorkoutLogs(data))
-    }, [])
-
 
     function onLogSubmit(formData) {
+        
         fetch("http://localhost:9292/log_entries", {
             method: "POST",
             headers: {
@@ -140,10 +133,15 @@ function AthleteContainer () {
         .then((deletedAthlete) => {
             const newAthleteList = athletes.filter((athlete) => athlete.id !== deletedAthlete.id);
             setAthletes(newAthleteList);
-            const newWorkoutLogs = workoutLogs.filter((log) => log.athlete_id !== deletedAthlete.id)
-            setWorkoutLogs(newWorkoutLogs)
             setSelectedAthlete("All")
+            getWorkoutsAgain()
         })
+    }
+
+    function getWorkoutsAgain(){
+        fetch("http://localhost:9292/workouts")
+        .then((res) => res.json())
+        .then((data) => setWorkouts(data))
     }
 
     function onAddAthleteClick(e) {
