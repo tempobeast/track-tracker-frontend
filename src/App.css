@@ -30,7 +30,7 @@ h1 {
 }
 
 .athlete_name {
-  background-color: blue;
+  background-color: rgb(3, 26, 232);
   padding-left: 10px;
   border-radius: 10px 0 10px 0;
   color: white
@@ -40,7 +40,7 @@ h1 {
   background-color: gray;
   padding-left: 10px;
   border-radius: 10px 0 10px 0;
-  border-color: blue;
+  border-color: rgb(3, 26, 232);
   color: white
 }
 
@@ -189,7 +189,7 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-  background-color: blue;
+  background-color: rgb(3, 26, 232);
 }
 
 .container {
@@ -210,14 +210,14 @@ input[type=submit]:hover {
   margin-top: 6px;
 }
 
-/* Clear floats after the columns */
+
 .row:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+
 @media screen and (max-width: 600px) {
   .col-25, .col-75, input[type=submit] {
     width: 100%;
@@ -229,3 +229,24 @@ input[type=submit]:hover {
   width: 75%;
   
 }
+
+#nav {
+  overflow: hidden;
+  background-color: rgb(3, 26, 232);
+}
+
+.nav_button {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: bolder;
+}
+
+.nav_button:hover{
+  background-color: #ccc;
+  color: rgb(3, 26, 232)
+}
+
