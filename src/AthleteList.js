@@ -19,7 +19,8 @@ function AthleteList ({ athletes, onAthleteClick, onSelectAll, onAthletePatchSub
 
     return (
         <div id="athlete_list" >
-             <p onClick={handleAllClick} className="show_all" name="All">Show All</p>
+            <p>Show workouts for:</p>
+             <p onClick={handleAllClick} className="show_all" name="All">All</p>
             {/* <p>Athlete Name:</p> */}
             {alphaOrder.map((athlete) => 
                 <AthleteCard key={athlete.id} onAthletePatchSubmit={onAthletePatchSubmit} athlete={athlete} handleClick={handleClick} onAthleteDelete={onAthleteDelete} selectedAthlete={selectedAthlete} setSelectedAthlete={setSelectedAthlete}/>

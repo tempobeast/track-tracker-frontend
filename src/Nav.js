@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import { NavLink } from "react-router-dom"
 
 function Nav({onAddAthleteClick, onAddWorkoutClick}) {
 
@@ -14,8 +15,12 @@ function Nav({onAddAthleteClick, onAddWorkoutClick}) {
 
 return (
     <div id="nav">
-        <button className="nav_button" onClick={handleAddAthleteClick}>Add Athlete</button>
-        <button className="nav_button" onClick={handleAddWorkoutClick }>Add Workout</button>
+      <NavLink className="nav_button" to="/">Home</NavLink>
+      <NavLink className="nav_button" to="/new-athlete">New Athlete</NavLink>
+      <NavLink className="nav_button" to="/new-workout">New Workout</NavLink>
+
+        {/* <button className="nav_button" onClick={handleAddAthleteClick}>Add Athlete</button>
+        <button className="nav_button" onClick={handleAddWorkoutClick }>Add Workout</button> */}
     </div>
     
   );
