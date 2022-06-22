@@ -2,7 +2,6 @@ import React from "react";
 import "./App.css";
 import WorkoutCard from "./WorkoutCard"
 
-
 function WorkoutList ( { selectedAthlete, onLogSubmit, workouts, onLogDelete, athletes } ) {
 
     const sortWorkoutByDate = workouts.sort((a, b) => a.date > b.date ? 1 : a.date < b.date ? -1 : 0 )

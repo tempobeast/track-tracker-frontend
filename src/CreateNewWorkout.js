@@ -1,8 +1,6 @@
 import React, {useState} from "react";
 import "./App.css";
 
-
-
 function CreateNewWorkout ({ setAddWorkout, onNewWorkoutSubmit }) {
 
     const [newWorkoutFormData, setNewWorkoutFormData] = useState({

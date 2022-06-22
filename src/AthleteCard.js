@@ -7,7 +7,6 @@ import PatchAthlete from "./PatchAthlete";
 function AthleteCard ({ athlete, handleClick, handleEditAthleteClick, onAthletePatchSubmit, onAthleteDelete, selectedAthlete, setSelectedAthlete }) {
 
     const [updateAthlete, setUpdateAthlete] = useState(false)
-
     const {id, name, age, workouts} = athlete
 
     function handleEditAthleteClick(e) {
@@ -17,7 +16,6 @@ function AthleteCard ({ athlete, handleClick, handleEditAthleteClick, onAthleteP
     function handleDeleteAthleteClick(e) {
         onAthleteDelete(id)
     }
-    
 
     return (
         <div className="athlete_card">

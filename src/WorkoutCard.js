@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import "./App.css";
 import Comments from "./Comments"
 
-
 function WorkoutCard ({ workout, onLogSubmit, onLogDelete, athletes }) {
 
     const [viewComment, setViewComment] = useState(false)
@@ -14,7 +13,6 @@ function WorkoutCard ({ workout, onLogSubmit, onLogDelete, athletes }) {
     const {workout_type, date, details, approx_duration, add_ons} = workout
 
     const averageWorkoutRating = workout.log_entries.reduce(function(acc, entry) {return acc + entry.workout_rating}, 0)/workout.log_entries.length;
-
 
     return (
         <div className="workout_card">

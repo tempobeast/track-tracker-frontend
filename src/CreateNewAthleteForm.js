@@ -1,8 +1,6 @@
 import React, {useState} from "react";
 import "./App.css";
 
-
-
 function CreateNewAthleteForm ({ setAddAthlete, onNewAthleteSubmit }) {
 
     const [newAthleteFormData, setNewAthleteFormData] = useState({
